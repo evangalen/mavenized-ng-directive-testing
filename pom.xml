@@ -96,7 +96,7 @@
                                 <replaceregexp byline="true" file="${basedir}/target/karma-coverage-html.conf.js"
                                     match="\p{Blank}*basePath\p{Blank}*:\p{Blank}*''," replace="basePath: '..'," />
                                 <replaceregexp byline="true" file="${basedir}/target/karma-coverage-html.conf.js"
-                                    match="//(\p{Blank}*'.*'\p{Blank}*:\p{Blank}*'coverage'\p{Blank}*)" replace="\1" />
+                                    match="\p{Blank}*//(\p{Blank}*,?'.*'\p{Blank}*:\p{Blank}*'coverage'\p{Blank}*)" replace="\1" />
                             </target>
                         </configuration>
                     </execution>
@@ -120,7 +120,27 @@
                                 <replaceregexp byline="true" file="${basedir}/target/karma-coverage-lcov.conf.js"
                                     match="type\p{Blank}*:\p{Blank}*'html'," replace="type: 'lcovonly'," />
                                 <replaceregexp byline="true" file="${basedir}/target/karma-coverage-lcov.conf.js"
-                                    match="\p{Blank}*//(\p{Blank}*'.*'\p{Blank}*:\p{Blank}*'coverage'\p{Blank}*)" replace="\1" />
+                                    match="\p{Blank}*//(\p{Blank}*,?'.*'\p{Blank}*:\p{Blank}*'coverage'\p{Blank}*)" replace="\1" />
+                            </target>
+                        </configuration>
+                    </execution>
+
+                    <!-- Generates a Karma configuration file (in "target/karma-coverage-webstorm7.conf.js") for
+                         coverage reporting in JetBrains Karma plugin (in WebStorm 7 / IntelliJ IDEA 13) -->
+                    <execution>
+                        <id>karma-coverage-webstorm7.conf.js</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+
+                        <configuration>
+                            <target>
+                                <copy file="${basedir}/target/karma-coverage-lcov.conf.js"
+                                    tofile="${basedir}/target/karma-coverage-webstorm7.conf.js" />
+
+                                <replaceregexp byline="true" file="${basedir}/target/karma-coverage-lcov.conf.js"
+                                    match="\p{Blank}*//(\p{Blank}*,?\p{Blank}*reporters\p{Blank}*:\p{Blank}*[\p{Blank}*'coverage'\p{Blank}*]\p{Blank}*)" replace="\1" />
                             </target>
                         </configuration>
                     </execution>
