@@ -125,10 +125,10 @@
                         </configuration>
                     </execution>
 
-                    <!-- Generates a Karma configuration file (in "target/karma-coverage-webstorm7.conf.js") for
-                         coverage reporting in JetBrains Karma plugin (in WebStorm 7 / IntelliJ IDEA 13) -->
+                    <!-- Generates a Karma configuration file (in "target/karma-coverage-idea13.conf.js") for
+                         coverage reporting in JetBrains Karma plugin (in IntelliJ IDEA 13) -->
                     <execution>
-                        <id>karma-coverage-webstorm7.conf.js</id>
+                        <id>karma-coverage-idea13.conf.js</id>
                         <phase>initialize</phase>
                         <goals>
                             <goal>run</goal>
@@ -137,9 +137,9 @@
                         <configuration>
                             <target>
                                 <copy file="${basedir}/target/karma-coverage-lcov.conf.js"
-                                    tofile="${basedir}/target/karma-coverage-webstorm7.conf.js" />
+                                    tofile="${basedir}/target/karma-coverage-idea13.conf.js" />
 
-                                <replaceregexp byline="true" file="${basedir}/target/karma-coverage-webstorm7.conf.js"
+                                <replaceregexp byline="true" file="${basedir}/target/karma-coverage-idea13.conf.js"
                                     match="\p{Blank}*//(\p{Blank}*,?\p{Blank}*reporters\p{Blank}*:\p{Blank}*[\p{Blank}*'coverage'\p{Blank}*]\p{Blank}*)" replace="\1" />
                             </target>
                         </configuration>
