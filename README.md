@@ -1,4 +1,4 @@
-# --> The repo has been "manually" forked from vojtajina/ng-directive-testing repo.
+## "manually" forked from [vojtajina/ng-directive-testing](https://github.com/vojtajina/ng-directive-testing)
 
 # Testing directive – the easy way
 
