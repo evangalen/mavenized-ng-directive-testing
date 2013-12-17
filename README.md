@@ -1,3 +1,5 @@
+# --> The repo has been "manually" forked from vojtajina/ng-directive-testing repo.
+
 # Testing directive – the easy way
 
 Directives in [AngularJS] encapsulate all of the custom DOM manipulation that happens in an AngularJS application.
